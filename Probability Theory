@@ -1,1 +1,5 @@
-
+#dbinom(x, size, prob)
+#x = a vector of numbers; 0
+#size = the number of trials; 10 patients
+#prob = probability of success on each trial; 20%
+dbinom(0, 10, .2)
