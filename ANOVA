@@ -36,3 +36,5 @@ lm_zelazo <- lm(values ~ ind, data = stack_zelazo_df)
 summary(lm_zelazo)
 aov_zelazo <- aov(values ~ ind, data = stack_zelazo_df)
 summary(aov_zelazo)
+
+A
