@@ -1,1 +1,64 @@
+# Part Aa
+# Combine the number of ice cream purchases into a vector
+x <- c(8, 14, 16, 10, 11)
+mean(x)
 
+# Part Ab
+replicate(25, sample(x, 2, F))
+
+# Part Ac
+a <- c(14, 16)
+aMean <- mean(a)
+aSD <- sd(a)
+b <- c(11, 14)
+bMean <- mean(b)
+bSD <- sd(b)
+c <- c(14, 8)
+cMean <- mean(c)
+cSD <- sd(c)
+d <- c(10, 14)
+dMean <- mean(d)
+dSD <- sd(d)
+e <- c(16, 11)
+eMean <- mean(e)
+eSD <- sd(e)
+f <- c(16, 8)
+fMean <- mean(f)
+fSD <- sd(f)
+g <- c(10, 16)
+gMean <- mean(g)
+gSD <- sd(g)
+h <- c(10, 8)
+hMean <- mean(h)
+hSD <- sd(h)
+i <- c(11, 8)
+iMean <- mean(i)
+iSD <- sd(i)
+j <- c(10, 11)
+jMean <- mean(j)
+jSD <- sd(j)
+data.frame(mean = c(aMean, bMean, cMean, dMean, eMean, fMean, gMean, hMean, iMean, jMean),
+           sd = c(aSD, bSD, cSD, dSD, eSD, fSD, gSD, hSD, iSD, jSD))
+
+
+
+# Part C
+# As an example, coin have "heads" & "tails" = 0; flipping 7 times
+# sample(x, size, replace = FALSE, prob = NULL)
+# x = define a vector or dataset; "heads" & "tails"
+# size = sample size: 7
+# replace = should the sample be a replacement or not? Default = F
+# prob = probability
+coin <- c("heads", "tails")
+sample(coin, 1)
+sample(coin, 2)
+
+# As an example, coin have "heads" = 0 & "tails" = 1; flipping 7 times and 50% is the probability
+# rbinom(n, size, prob)
+# n = number of observations; randomly choose any numbers
+# size = number of trials; 7
+# prob = success probability on each trial; 50%
+coin <- c(0, 1)
+rbinom(7, coin, .5)
+rbinom(2, coin, .5)
+rbinom(25, coin, .5)
