@@ -41,6 +41,8 @@ z
 # finding P-values with the pnorm function
 pnorm(z)
 
+
+
 Question 3
 library(corrgram)
 getwd()
