@@ -1,1 +1,10 @@
-
+ccCharge <- c(31.9, 27, 31.3, 31, 39.4, 40.7, 42.3, 49.5, 45, 50, 50.9, 58.5, 39.4, 36.2, 40.5, 44.6, 46.8, 44.7, 52.2, 54,
+              48.8, 55.8, 58.7, 63.4)
+ccChargeTS <- ts(ccCharge)
+ccChargeTS <- ts(ccCharge, frequency = 12, start = c(2012, 1))
+ccChargeTS
+plot.ts(ccChargeTS)
+ccChargeforecast <- HoltWinters(ccChargeTS, beta = FALSE, gamma = FALSE)
+ccChargeforecast
+plot(ccChargeforecast)
+ccChargeforecast$SSE
