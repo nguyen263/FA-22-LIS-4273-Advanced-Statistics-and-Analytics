@@ -1,1 +1,26 @@
+#Q1
+library(ISwR)
+data("cystfibr")
+head(cystfibr)
+lm(cystfibr$pemax ~ age + weight + bmp + fev1, data = cystfibr)
+summary(cystfibrLm)
+anova(lm(cystfibr$pemax ~ age + weight + bmp + fev1, data = cystfibr))
 
+
+
+#Q2
+data("secher")
+head(secher)
+#bwt = birth weight (g)
+#bpd = biparietal diameter (mm)
+#ad = abdominal diameter (mm)
+#I = changes the class to "as.is"
+#using ad as predictor and bwt as response variable
+model10 <-lm((log(bwt)) ~ (I(log(ad))), data = secher)
+summary(model10)
+#using bpd as predictor and bwt as response variable
+model11 <-lm((log(bwt)) ~ (I(log(bpd))), data = secher)
+summary(model11)
+#using ad and bpd as predictors and bwt as response variable
+model12 <-lm((log(bwt)) ~ (I(log(ad)) + (I(log(bpd)))), data = secher)
+summary(model12)
