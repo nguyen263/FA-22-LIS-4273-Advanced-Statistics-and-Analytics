@@ -1,1 +1,38 @@
+#Q1
+stressHigh <- c(10, 9, 8, 9, 10, 8)
+stressModerate <- c(8, 10, 6, 7, 8, 8)
+stressLow <- c(4, 6, 6, 4, 2, 2)
+testStress <- data.frame(High_Stress = stressHigh,
+                   Moderate_Stress = stressModerate,
+                   Low_Stress = stressLow)
+testStress
+#Multiple columns can be transformed into a single column by using stack()
+stack_testStress <- stack(testStress)
+stack_testStress
+#aov(formula = [target variable] ~ [predictor variables], data = [data source])
+aov_testStress <- aov(values ~ ind, data = stack_testStress)
+summary(aov_testStress)
 
+
+
+#Q2
+library(ISwR)
+data("zelazo")
+zelazo
+#Transform the data into a table by using as.data.frame()
+zelazo_df <- as.data.frame(matrix(unlist(zelazo), nrow = 6))
+zelazo_df
+#Column title renamed
+names(zelazo_df)[1] <- "active"
+colnames(zelazo_df)
+names(zelazo_df)[2] <- "passive"
+names(zelazo_df)[3] <- "none"
+names(zelazo_df)[4] <- "ctr.8w"
+zelazo_df
+stack_zelazo_df <- stack(zelazo_df)
+stack_zelazo_df
+#lm(formula = [target variable] ~ [predictor variables], data = [data source])
+lm_zelazo <- lm(values ~ ind, data = stack_zelazo_df)
+summary(lm_zelazo)
+aov_zelazo <- aov(values ~ ind, data = stack_zelazo_df)
+summary(aov_zelazo)
