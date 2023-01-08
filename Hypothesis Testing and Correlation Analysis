@@ -72,3 +72,5 @@ spearman
 print(paste("c. Create plot of the correlation"))
 corrgram(pearson)
 corrgram(spearman)
+
+A
