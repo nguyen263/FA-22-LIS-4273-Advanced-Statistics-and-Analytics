@@ -17,3 +17,5 @@ addmargins(assignment9)
 #prop.table(x, margin) report on the proportional weight of each value
 prop.table(assignment9)
 prop.table(assignment9, 1)
+
+A
