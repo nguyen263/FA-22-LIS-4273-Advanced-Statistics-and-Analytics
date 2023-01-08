@@ -1,1 +1,73 @@
+Question 1
+# a = given mean
+a <- 70
+# given standard deviation
+s <- 3.5
+# sample size
+n <- 49
+# mean of the samples
+xbar <- 69.1
+# calculate z score
+z <- (xbar-a)/(s/sqrt(n))
+z
+# finding P-values with the pnorm function
+pnorm(z)
+#find critical value
+qt(p=.05, df=48, lower.tail=TRUE)
+
+# a = given mean
+a <- 70
+# given standard deviation
+s <- 1.75
+# sample size
+n <- 49
+# mean of the samples
+xbar <- 69.1
+z <- (xbar-a)/(s/sqrt(n))
+z
+# finding P-values with the pnorm function
+pnorm(z)
+
+# a = given mean
+a <- 70
+# given standard deviation
+s <- 3.5
+# sample size
+n <- 49
+# mean of the samples
+xbar <- 69
+z <- (xbar-a)/(s/sqrt(n))
+z
+# finding P-values with the pnorm function
+pnorm(z)
+
+Question 3
+library(corrgram)
+getwd()
+setwd("~/Documents/R files/LIS 4273 Adv Stats & Analytics")
+data <- read.csv("Module # 5.csv", header = T)
+data2 <- read.csv("Module # 5 copy.csv", header = T)
+data
+data2
+# x = girls
+updated_data<- data[-c(1,2,3,4,6,7,8,9,10,11,12),-5:-9]
+# Combines the "total" numbers
+x <- c(92, 108, 135)
+x
+# y = boys
+updated_data2<- data2[5,-5:-9]
+# Combines the "total" numbers
+y <- c(95.9, 113, 141)
+y
+df <- data.frame(x,y)
+df
+print(paste("a. Calculate the correlation coefficient for this data set:", cor(x,y)))
+print(paste("b. Pearson correlation coefficient"))
+pearson <- cor(df,method="pearson") #As pearson correlation
+pearson
+spearman <- cor(df, method="spearman") #As spearman correlation
+spearman
+print(paste("c. Create plot of the correlation"))
+corrgram(pearson)
+corrgram(spearman)
 
