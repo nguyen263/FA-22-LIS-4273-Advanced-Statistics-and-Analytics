@@ -1,1 +1,41 @@
+#Q1
+x <- c(16, 17, 13, 18, 12, 14, 19, 11, 11, 10)
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+plot(x, y)
+lm(y~x)
 
+
+
+#Q2
+discharge <- c(3.600, 1.800, 3.333, 2.283, 4.533, 2.883)
+waiting <- c(79, 54, 74, 62, 85, 55)
+visit <- data.frame(discharge = discharge,
+                    waiting = waiting)
+head(visit)
+plot(discharge ~ waiting, data = visit)
+eruption.lm <- lm(formula = discharge ~ waiting, data = visit)
+eruption.lm
+coeffs = coefficients(eruption.lm)
+waiting = 80
+duration <- coeffs[1] + coeffs[2] * waiting
+duration
+
+
+
+#Q3
+input <- mtcars[,c("mpg","disp","hp","wt")]
+print(head(input))
+lm(formula = mpg ~ disp + hp + wt, data = input) 
+
+
+
+#Q4
+library(ISwR)
+plot(metabolic.rate~body.weight, data = rmr)
+rmr
+rmr.lm <- lm(formula = metabolic.rate~body.weight, data = rmr)
+rmr.lm
+coeffs = coefficients(rmr.lm)
+weight = 70
+metabolic_rate = coeffs[1] + coeffs[2] * weight
+metabolic_rate
