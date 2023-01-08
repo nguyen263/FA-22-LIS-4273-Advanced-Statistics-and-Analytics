@@ -1,1 +1,39 @@
-
+#set up the directory
+setwd("~/Documents/R files/LIS 4273 Adv Stats & Analytics")
+#assign the read.csv file to a variable named "data"
+data <- read.csv("COVID19_CDC_Vaccination_CSV_Download.csv", T)
+#Take a look at the first few rows of "data"
+head(data)
+#Remove a few rows and columns
+data <- data[-c(1:4390, 4392, 4400:nrow(data)), -c(1:4, 8:ncol(data))]
+#call "data" to see the modified data
+data
+#Use the row.names from 4391:4399 to 1:8 to adjust the row names in "data"
+rownames(data) <- NULL
+#rename observations in the first column named "DEMOGRAPHIC_CATEGORY"
+data$DEMOGRAPHIC_CATEGORY <- c("2-4", "5-11", "12-17", "18-24", "25-49", "50-64", "65+", "<2")
+#Rename columns
+names(data)[1] <- "Age groups"
+names(data)[2] <- "Partially vaccinated rate"
+names(data)[3] <- "Fully vaccinated rate"
+data
+#Use str() to do an investigation of the data to see all of the information about the row(observations) and column(variables) along with the names and class of the columns, followed by a few initial observations
+str(data)
+#Using as.numeric(), convert variables with the character class to numeric and remove decimals from some variables using gsub()
+data$`Partially vaccinated rate` <- as.numeric(gsub(".00000", "", data$`Partially vaccinated rate`))
+data$`Fully vaccinated rate` <- as.numeric(gsub(".00000", "", data$`Fully vaccinated rate`))
+str(data)
+#add a column "Total". The value of "Total" is the sum of the values of both selected columns
+df <- data.frame(data$`Partially vaccinated rate`, data$`Fully vaccinated rate`)
+df
+Sum <- rowSums(df)
+Total <- Sum
+data$Total <- Total
+data
+#Make histograms
+library(ggplot2)
+ggplot(data, aes(`Age groups`, `Partially vaccinated rate`)) + geom_histogram(stat = 'identity', width = 1)
+ggplot(data, aes(`Age groups`, `Fully vaccinated rate`)) + geom_histogram(stat = 'identity', width = 1)
+#test the data
+chisq.test(data$`Age groups`, data$`Partially vaccinated rate`, simulate.p.value = T)
+chisq.test(data$`Age groups`, data$`Fully vaccinated rate`, simulate.p.value = T)
