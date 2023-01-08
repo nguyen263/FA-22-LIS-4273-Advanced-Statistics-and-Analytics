@@ -1,1 +1,33 @@
-
+#two sets of data - each consist of 7 observations (n=7)
+#Set #1:
+set1 <- c(10, 2, 3, 2, 4, 2, 5)
+#Set #2:
+set2 <- c(20, 12, 13, 12, 14, 12, 15)
+#For each set, compute the mean, medium, and mode under Central Tendency
+set1[order(set1)]
+set2[order(set2)]
+mode <- function(x){
+  u <- unique(x)
+  u[which.max(tabulate(match(x, u)))]
+}
+#Set #1
+mean(set1)
+median(set1)
+mode(set1)
+#Set #2
+mean(set2)
+median(set2)
+mode(set2)
+#For each set, compute the range, interquartile, variance, and standard deviation under Variation
+#Set #1
+range(set1)
+diff(range(set1))
+quantile(set1)
+var(set1)
+sd(set1)
+#Set #2
+range(set2)
+diff(range(set2))
+quantile(set2)
+var(set2)
+sd(set2)
