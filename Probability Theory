@@ -1,3 +1,9 @@
+What is the probability of operating on 10 patients successfully with the traditional method?
+A hint, use dbinom function – it is part of R functions that count Density, distribution function, quantile function, and random generation for the binomial distribution with parameters size and prob.
+
+You will answer this question with
+dbinom(XXX, size=XXX, prob=XXX)
+
 #dbinom(x, size, prob)
 #x = a vector of numbers; 0
 #size = the number of trials; 10 patients
