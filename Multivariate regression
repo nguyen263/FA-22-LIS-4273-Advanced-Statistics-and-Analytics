@@ -24,3 +24,5 @@ summary(model11)
 #using ad and bpd as predictors and bwt as response variable
 model12 <-lm((log(bwt)) ~ (I(log(ad)) + (I(log(bpd)))), data = secher)
 summary(model12)
+
+A
