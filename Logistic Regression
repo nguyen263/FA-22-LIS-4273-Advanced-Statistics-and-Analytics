@@ -45,3 +45,5 @@ new_ashina <- rbind(act, plac)
 head(new_ashina)
 lm(vas ~ subject + period + treat, new_ashina)
 t.test(ashina$vas.active, ashina$vas.plac, var.equal = T)
+
+A
