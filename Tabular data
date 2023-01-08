@@ -1,1 +1,19 @@
+#Q1
+assignment_data <- data.frame(Country = c("France", "Spain", "Germany", "Spain", "Germany", "France", "Spain", "France", "Germany", "France"),
+                              age = c(44, 27, 30, 38, 40, 35, 52, 48, 45, 37),
+                              salary = c(6000, 5000, 7000, 4000, 8000),
+                              Purchased = c("No", "Yes", "No", "No", "Yes", "Yes", "No", "Yes", "No", "Yes"))
+assignment_data
+#t() Rotate the dataframe so that the header label appears in rows and the data label appears in a columns
+t(assignment_data)
 
+
+
+#Q2
+assignment9 <- table(mtcars$gear, mtcars$cyl, dnn = c("Gear", "Cyl"))
+assignment9
+#addmargins() add a row of margins
+addmargins(assignment9)
+#prop.table(x, margin) report on the proportional weight of each value
+prop.table(assignment9)
+prop.table(assignment9, 1)
