@@ -8,3 +8,5 @@ ccChargeforecast <- HoltWinters(ccChargeTS, beta = FALSE, gamma = FALSE)
 ccChargeforecast
 plot(ccChargeforecast)
 ccChargeforecast$SSE
+
+A
