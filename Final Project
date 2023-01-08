@@ -37,3 +37,5 @@ ggplot(data, aes(`Age groups`, `Fully vaccinated rate`)) + geom_histogram(stat =
 #test the data
 chisq.test(data$`Age groups`, data$`Partially vaccinated rate`, simulate.p.value = T)
 chisq.test(data$`Age groups`, data$`Fully vaccinated rate`, simulate.p.value = T)
+
+A
